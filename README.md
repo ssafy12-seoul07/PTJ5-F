@@ -27,13 +27,14 @@ Ssafit Database 구현
 - Mysql EER Diagram 사용하여 구조를 작성한 후 DDL생성
 
 ## ERD
-- 초기 작성 버전
+#### 1. 초기 작성 버전
 ![erd v1](resource/schema_erd.png)
-- 나중에 볼 동영상 리스트 추가 버전
-![erd v2](resource/schema_erd_v2.png)
-- 개선사항 반영 버전
-![erd v2.1](resource/schema_erd_v2.1.png)
 
+#### 2. 나중에 볼 동영상 리스트 추가 버전
+![erd v2](resource/schema_erd_v2.png)
+
+#### 3. 개선사항 반영 버전
+![erd v2.1](resource/schema_erd_v2.1.png)
 
 
 ##  생성형 AI를 통한 개선사항 도출
@@ -105,7 +106,12 @@ CONSTRAINT `video_id`
 
 
 ### 김서현
-
+#### 프로젝트 개요
+- 이번 프로젝트는 SSAFIT 서비스의 Database의 구조를 작성해보는 것이 주요내용이었다. 구조 작성을 위해 MySQL을 활용하여 EERD를 작성해보았고, 작성한 EERD를 바탕으로 DDL을 자동 생성하였다.
+지금까지는 DDL이 이미 작성되어있는 경우가 많았는데 직접 구조를 설계하는 것을 경험해볼 수 있었다. 직전에 진행했던 프로젝트를 바탕으로 팀원들과 함께 컬럼명과 테이블명을 상의하고 관계를 설정했다.
+#### 프로젝트를 통해 배운 점
+1. MySQL에서 EERD를 작성하면서 review테이블의 review_created_at의 default값을 now()로 설정했는데, MySQL에서는 default값에 함수를 넣을 수 없다는 것을 개선과정에서 알게 되었다. 그래서 now()대신 CURRENT_TIMESTAMP로 변경하였다.
+2. 문자집합을 자동생성했을떄 utf8로 되어있어서 utf8mb4로 변경했는데, 이모지같은 특수문자를 utf8mb4로는 처리할 수 없다는 것을 알게 되었습니다. 그래서 default값을 이모지를 처리하는 utf8mb4_general_ci로 설정하려고 했는데, 이모지를 사용하는 부분은 특정 컬럼(review_title, review_content 등)이므로 해당 컬럼에만 적용하였다. 이런 부분을 통해 문자집합관리도 필요한 부분임을 알게 되었다.
 
 ### 배장한
 
