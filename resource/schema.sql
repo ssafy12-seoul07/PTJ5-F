@@ -55,3 +55,25 @@ CREATE TABLE IF NOT EXISTS `pjt5_f_db`.`Review` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `pjt5_f_db`.`WatchList`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pjt5_f_db`.`WatchList` (
+  `user_id` VARCHAR(15) NOT NULL,
+  `video_id` INT NOT NULL,
+  `watchlist_added_date` DATETIME NULL DEFAULT now(),
+  PRIMARY KEY (`user_id`, `video_id`),
+  INDEX `video_id_idx` (`video_id` ASC) VISIBLE,
+  CONSTRAINT `user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `pjt5_f_db`.`User` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `video_id`
+    FOREIGN KEY (`video_id`)
+    REFERENCES `pjt5_f_db`.`Video` (`video_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
