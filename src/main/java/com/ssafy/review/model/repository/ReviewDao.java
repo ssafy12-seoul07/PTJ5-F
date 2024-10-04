@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.ssafy.review.model.dto.Review;
 
-public interface ReviewRepository {
+public interface ReviewDao {
 	public abstract List<Review> selectAllByVideoId(int VideoId);
 	
 	public abstract Review selectOne(int id);

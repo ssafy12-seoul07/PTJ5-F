@@ -23,7 +23,7 @@ public class VideoDaoImpl implements VideoDao {
 	}
 	
 	public List<Video> selectAll() {
-		String sql = "SELECT * FROM videos";
+		String sql = "SELECT * FROM Video";
 		List<Video> result = new ArrayList<>();
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -34,11 +34,11 @@ public class VideoDaoImpl implements VideoDao {
             rs = pstmt.executeQuery();
             while (rs.next()) {
                 Video video= new Video();
-                video.setId(rs.getInt("id"));
-                video.setTitle(rs.getString("title"));
-                video.setChannelName(rs.getString("channel_name"));
-                video.setPart(rs.getString("part"));
-                video.setUrl(rs.getString("url"));
+                video.setId(rs.getInt("video_id"));
+                video.setTitle(rs.getString("video_title"));
+                video.setChannelName(rs.getString("video_channel_name"));
+                video.setPart(rs.getString("video_part"));
+                video.setUrl(rs.getString("video_url"));
                 result.add(video);
             }
 
@@ -52,7 +52,7 @@ public class VideoDaoImpl implements VideoDao {
 	}
 
 	public Video selectOne(int id) {
-		String sql = "SELECT * FROM videos WHERE id=?";
+		String sql = "SELECT * FROM Video WHERE video_id=?";
 		Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -64,11 +64,11 @@ public class VideoDaoImpl implements VideoDao {
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 video = new Video();
-                video.setId(rs.getInt("id"));
-                video.setTitle(rs.getString("title"));
-                video.setChannelName(rs.getString("channel_name"));
-                video.setPart(rs.getString("part"));
-                video.setUrl(rs.getString("url"));
+                video.setId(rs.getInt("video_id"));
+                video.setTitle(rs.getString("video_title"));
+                video.setChannelName(rs.getString("video_channel_name"));
+                video.setPart(rs.getString("video_part"));
+                video.setUrl(rs.getString("video_url"));
             }
         } catch (Exception e) {
             e.printStackTrace();

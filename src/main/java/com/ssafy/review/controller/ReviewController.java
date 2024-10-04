@@ -101,7 +101,7 @@ public class ReviewController extends HttpServlet{
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
-		Review review = new Review(videoId, title, writer, content);
+		Review review = new Review(writer, videoId, title, content);
 		
 		service.writeReview(review);
 		

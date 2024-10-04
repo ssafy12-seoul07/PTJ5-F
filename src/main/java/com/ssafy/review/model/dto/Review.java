@@ -19,7 +19,7 @@ public class Review implements Serializable {
 	public Review() {
 	}
 
-	public Review(int videoId, String title,  String writer, String content) {
+	public Review(String writer, int videoId, String title, String content) {
 		this.id = no++;
 		this.videoId = videoId;
 		this.title = title;
