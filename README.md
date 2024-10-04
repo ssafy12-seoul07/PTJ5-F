@@ -1,5 +1,5 @@
 
-#  PTJ4-F
+#  PTJ5-F
 
   
 
@@ -20,14 +20,21 @@ Ssafit Database 구현
 - Database ERD작성
 
 - DDL작성 후 DB 생성
-
   
 
 ##  구현 방식
 
 - Mysql EER Diagram 사용하여 구조를 작성한 후 DDL생성
 
-  
+## ERD
+- 초기 작성 버전
+![erd v1](resource/schema_erd.png)
+- 나중에 볼 동영상 리스트 추가 버전
+![erd v2](resource/schema_erd_v2.png)
+- 개선사항 반영 버전
+![erd v2.1](resource/schema_erd_v2.1.png)
+
+
 
 ##  생성형 AI를 통한 개선사항 도출
 
@@ -92,3 +99,13 @@ CONSTRAINT `video_id`
 > -   문자 집합 및 정렬 규칙 명시:
     -   데이터베이스 및 테이블 생성 시 `utf8mb4`와 같은 보다 최신의 문자 집합을 사용하고, 정렬 규칙을 `utf8mb4_general_ci` 등으로 설정하여 이모티콘 등의 특수 문자도 문제없이 처리할 수 있도록 하는 것이 좋습니다.
 - 콜레이션 설정을 데이터베이스 단위로 설정하려 했으나, 그럴 경우 title, content 외에 user_id, user_name, user_password 등 다른 컬럼에도 이모지가 설정될 수 있어서 title, content 단일 컬럼에만 설정했다.
+
+## 후기
+### 최혁규
+
+
+### 김서현
+
+
+### 배장한
+
